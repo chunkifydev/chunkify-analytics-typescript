@@ -1,5 +1,8 @@
 # Chunkify Analytics TypeScript API Library
 
+This is the API client for the Chunkify Analytics server. For automatic playback tracking
+in a browser, use [`@chunkify/player-analytics`](https://www.npmjs.com/package/@chunkify/player-analytics).
+
 [![NPM version](<https://img.shields.io/npm/v/@chunkify/analytics.svg?label=npm%20(stable)>)](https://npmjs.org/package/@chunkify/analytics) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@chunkify/analytics)
 
 This library provides convenient access to the Chunkify Analytics REST API from server-side TypeScript or JavaScript.
