@@ -47,6 +47,10 @@ export class Exports extends APIResource {
    * active download. S3 retention/deletion can remove source objects during a
    * download.
    *
+   * The download URL contains the credential needed for this request. Treat it as a
+   * secret until it expires. You can call this method without configuring an API key
+   * on the client.
+   *
    * @example
    * ```ts
    * const response = await client.exports.download(

@@ -10,6 +10,9 @@ import { RequestOptions } from '../internal/request-options';
 export class Health extends APIResource {
   /**
    * Check whether the service is ready.
+   *
+   * No API key is required. This checks collector readiness and does not return
+   * project analytics.
    */
   retrieve(options?: RequestOptions): APIPromise<Health> {
     return this._client.get('/healthz', { ...options, __security: {} });
