@@ -3,6 +3,7 @@
 Types:
 
 - <code><a href="./src/resources/shared.ts">BrowserContext</a></code>
+- <code><a href="./src/resources/shared.ts">CustomDimensions</a></code>
 - <code><a href="./src/resources/shared.ts">Error</a></code>
 - <code><a href="./src/resources/shared.ts">EventContext</a></code>
 - <code><a href="./src/resources/shared.ts">EventEnvelope</a></code>
@@ -14,12 +15,14 @@ Types:
 - <code><a href="./src/resources/shared.ts">OtlpLogRecord</a></code>
 - <code><a href="./src/resources/shared.ts">OtlpResource</a></code>
 - <code><a href="./src/resources/shared.ts">OtlpScope</a></code>
+- <code><a href="./src/resources/shared.ts">PlaybackRatePlayingTime</a></code>
 - <code><a href="./src/resources/shared.ts">PlaybackScore</a></code>
 - <code><a href="./src/resources/shared.ts">PlayedRange</a></code>
 - <code><a href="./src/resources/shared.ts">ProgressReached</a></code>
 - <code><a href="./src/resources/shared.ts">RenditionPlayingTime</a></code>
 - <code><a href="./src/resources/shared.ts">StartupOutcomes</a></code>
 - <code><a href="./src/resources/shared.ts">StoredOtlpContext</a></code>
+- <code><a href="./src/resources/shared.ts">SubtitlePlayingTime</a></code>
 - <code><a href="./src/resources/shared.ts">ViewMetrics</a></code>
 - <code><a href="./src/resources/shared.ts">WatchTimeDistribution</a></code>
 
@@ -42,10 +45,12 @@ Types:
 - <code><a href="./src/resources/events.ts">NativeCreated</a></code>
 - <code><a href="./src/resources/events.ts">NativeDuplicate</a></code>
 - <code><a href="./src/resources/events.ts">PlaybackError</a></code>
+- <code><a href="./src/resources/events.ts">PlaybackRateChanged</a></code>
 - <code><a href="./src/resources/events.ts">PlaybackStateChanged</a></code>
 - <code><a href="./src/resources/events.ts">RenditionChanged</a></code>
 - <code><a href="./src/resources/events.ts">SeekCompleted</a></code>
 - <code><a href="./src/resources/events.ts">StoredEvent</a></code>
+- <code><a href="./src/resources/events.ts">SubtitleChanged</a></code>
 - <code><a href="./src/resources/events.ts">ViewEnded</a></code>
 - <code><a href="./src/resources/events.ts">ViewSnapshot</a></code>
 - <code><a href="./src/resources/events.ts">ViewStarted</a></code>
@@ -234,3 +239,25 @@ Types:
 Methods:
 
 - <code title="get /v1/renditions">client.renditions.<a href="./src/resources/renditions.ts">retrieve</a>({ ...params }) -> RenditionReport</code>
+
+# Subtitles
+
+Types:
+
+- <code><a href="./src/resources/subtitles.ts">SubtitleMetric</a></code>
+- <code><a href="./src/resources/subtitles.ts">SubtitleReport</a></code>
+
+Methods:
+
+- <code title="get /v1/subtitles">client.subtitles.<a href="./src/resources/subtitles.ts">retrieve</a>({ ...params }) -> SubtitleReport</code>
+
+# PlaybackRates
+
+Types:
+
+- <code><a href="./src/resources/playback-rates.ts">PlaybackRateMetric</a></code>
+- <code><a href="./src/resources/playback-rates.ts">PlaybackRateReport</a></code>
+
+Methods:
+
+- <code title="get /v1/playback-rates">client.playbackRates.<a href="./src/resources/playback-rates.ts">retrieve</a>({ ...params }) -> PlaybackRateReport</code>
