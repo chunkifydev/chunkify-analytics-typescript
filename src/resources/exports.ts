@@ -112,17 +112,26 @@ export interface ExportQuery {
 
   device_type?: 'desktop' | 'mobile' | 'tablet' | 'unknown';
 
+  /**
+   * One custom dimension's values, such as custom.plan.
+   */
   dimension?:
     | 'browser_name'
     | 'os_name'
     | 'device_type'
     | 'video_id'
     | 'viewer_id'
+    | 'user_id'
+    | 'video_title'
     | 'continent'
     | 'country'
     | 'city'
     | 'page_origin'
-    | 'page_path';
+    | 'page_path'
+    | 'subtitle_language'
+    | 'playback_rate'
+    | 'custom_keys'
+    | (string & {});
 
   event_name?:
     | 'chunkify.video.view_started'
@@ -131,10 +140,15 @@ export interface ExportQuery {
     | 'chunkify.video.view_ended'
     | 'chunkify.video.playback_state_changed'
     | 'chunkify.video.rendition_changed'
-    | 'chunkify.video.seek_completed';
+    | 'chunkify.video.seek_completed'
+    | 'chunkify.video.subtitle_changed'
+    | 'chunkify.video.playback_rate_changed';
 
   from?: string;
 
+  /**
+   * A custom dimension key, such as custom.plan.
+   */
   group_by?:
     | 'browser_name'
     | 'os_name'
@@ -143,7 +157,12 @@ export interface ExportQuery {
     | 'country'
     | 'city'
     | 'page_origin'
-    | 'page_path';
+    | 'page_path'
+    | 'subtitle_language'
+    | 'playback_rate'
+    | 'video_title'
+    | 'user_id'
+    | (string & {});
 
   has_fatal_error?: boolean;
 
@@ -167,6 +186,8 @@ export interface ExportQuery {
    */
   page_path?: string;
 
+  playback_rate?: string;
+
   /**
    * Videos or views only. Use a sort field supported by the selected resource.
    * Defaults to video_id for videos and started_at for views.
@@ -184,9 +205,15 @@ export interface ExportQuery {
     | 'startup_time_ms'
     | 'rebuffer_duration_ms';
 
+  subtitle_language?: string;
+
   to?: string;
 
+  user_id?: string;
+
   video_id?: string;
+
+  video_title?: string;
 
   view_id?: string;
 
@@ -205,6 +232,8 @@ export interface ExportRequest {
     | 'errors'
     | 'dimensions'
     | 'renditions'
+    | 'subtitles'
+    | 'playback_rates'
     | 'retention';
 
   /**
@@ -231,6 +260,8 @@ export interface ExportCreateParams {
     | 'errors'
     | 'dimensions'
     | 'renditions'
+    | 'subtitles'
+    | 'playback_rates'
     | 'retention';
 
   /**
@@ -258,6 +289,8 @@ export interface ExportListColumnsParams {
     | 'errors'
     | 'dimensions'
     | 'renditions'
+    | 'subtitles'
+    | 'playback_rates'
     | 'retention';
 
   /**
@@ -269,7 +302,11 @@ export interface ExportListColumnsParams {
    * name; filter by country to avoid combining names shared by different countries.
    * Page groups use the first retained start even if playback continues after
    * navigation. Filter by page_origin when grouping page_path to distinguish
-   * identical paths on different sites.
+   * identical paths on different sites. video_title groups by the title on each
+   * view's first retained start, so a renamed video counts each view under the title
+   * it started with. user_id groups by the user ID on each view's first retained
+   * start. Use custom.<key>, such as custom.plan, to group by a custom dimension;
+   * views without the key form the null group.
    */
   group_by?:
     | 'browser_name'
@@ -279,7 +316,12 @@ export interface ExportListColumnsParams {
     | 'country'
     | 'city'
     | 'page_origin'
-    | 'page_path';
+    | 'page_path'
+    | 'subtitle_language'
+    | 'playback_rate'
+    | 'video_title'
+    | 'user_id'
+    | (string & {});
 
   /**
    * Metric set for every time bucket. Uses the same calculations and sample counts
