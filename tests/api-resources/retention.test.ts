@@ -12,7 +12,7 @@ const client = new ChunkifyAnalytics({
 describe('resource retention', () => {
   // Mock server tests are disabled
   test.skip('retrieve: only required params', async () => {
-    const responsePromise = client.retention.retrieve({ video_id: 'video_id' });
+    const responsePromise = client.retention.retrieve({ video_id: 'P' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,7 +25,7 @@ describe('resource retention', () => {
   // Mock server tests are disabled
   test.skip('retrieve: required and optional params', async () => {
     const response = await client.retention.retrieve({
-      video_id: 'video_id',
+      video_id: 'P',
       browser_name: 'x',
       city: 'x',
       continent: 'AF',
@@ -35,9 +35,13 @@ describe('resource retention', () => {
       os_name: 'x',
       page_origin: 'x',
       page_path: 'x',
+      playback_rate: '269125115713',
+      subtitle_language: 'P',
       to: '2019-12-27T18:11:19.117Z',
+      user_id: 'x',
+      video_title: 'x',
       view_id: 'x',
-      viewer_id: 'viewer_id',
+      viewer_id: 'x',
     });
   });
 });

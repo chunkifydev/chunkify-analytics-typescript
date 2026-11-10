@@ -34,10 +34,12 @@ export {
   type NativeCreated,
   type NativeDuplicate,
   type PlaybackError,
+  type PlaybackRateChanged,
   type PlaybackStateChanged,
   type RenditionChanged,
   type SeekCompleted,
   type StoredEvent,
+  type SubtitleChanged,
   type ViewEnded,
   type ViewSnapshot,
   type ViewStarted,
@@ -57,6 +59,12 @@ export {
   type ExportListColumnsParams,
 } from './exports';
 export { Health } from './health';
+export {
+  PlaybackRates,
+  type PlaybackRateMetric,
+  type PlaybackRateReport,
+  type PlaybackRateRetrieveParams,
+} from './playback-rates';
 export {
   ProjectResource,
   type CreateProjectKeyRequest,
@@ -88,6 +96,12 @@ export {
   type RetentionReport,
   type RetentionRetrieveParams,
 } from './retention';
+export {
+  Subtitles,
+  type SubtitleMetric,
+  type SubtitleReport,
+  type SubtitleRetrieveParams,
+} from './subtitles';
 export {
   Summary,
   type Metrics,
