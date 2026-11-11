@@ -49,6 +49,34 @@ const metricsResponse: ChunkifyAnalytics.MetricsResponse = await client.summary.
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
 
+### Custom dimension filters
+
+Report methods also accept custom dimension filters named `custom.<key>`, such as `custom.plan`.
+They are not part of the typed params yet. Put them in the same params object as the typed filters,
+declared as a variable first:
+
+```ts
+const params = { video_title: 'Pilot', 'custom.plan': 'premium' };
+const summary = await client.summary.retrieve(params);
+```
+
+When the object contains only custom filters, assert its params type:
+
+```ts
+const params = { 'custom.plan': 'premium' } as ChunkifyAnalytics.SummaryRetrieveParams;
+const summary = await client.summary.retrieve(params);
+```
+
+Do not pass them with the `query` request option together with typed params. The `query` option replaces
+the params object, so the request below sends only `custom.plan` and ignores `video_title`:
+
+```ts
+// Wrong: video_title is not sent.
+await client.summary.retrieve({ video_title: 'Pilot' }, { query: { 'custom.plan': 'premium' } });
+```
+
+`group_by` and dimension methods accept custom keys directly, such as `group_by: 'custom.plan'`.
+
 ## Handling errors
 
 When the library is unable to connect to the API,
