@@ -255,9 +255,11 @@ export interface PlaybackError {
   viewer_id: string | null;
 
   /**
-   * Optional browser information supplied by the player.
+   * Browser and device information. The Chunkify player sends every field, with null
+   * for unavailable measurements. Other integrations may omit any field except
+   * schema_version. Extra properties are preserved.
    */
-  browser_context?: unknown;
+  browser_context?: Shared.BrowserContext | null;
 
   /**
    * Current playback rate, rounded to two decimals, such as 1, 1.5 or 2; from 0.01
@@ -381,9 +383,11 @@ export interface PlaybackRateChanged {
   viewer_id: string | null;
 
   /**
-   * Optional browser information supplied by the player.
+   * Browser and device information. The Chunkify player sends every field, with null
+   * for unavailable measurements. Other integrations may omit any field except
+   * schema_version. Extra properties are preserved.
    */
-  browser_context?: unknown;
+  browser_context?: Shared.BrowserContext | null;
 
   delivery_request_count?: number | null;
 
@@ -536,9 +540,11 @@ export interface PlaybackStateChanged {
   viewer_id: string | null;
 
   /**
-   * Optional browser information supplied by the player.
+   * Browser and device information. The Chunkify player sends every field, with null
+   * for unavailable measurements. Other integrations may omit any field except
+   * schema_version. Extra properties are preserved.
    */
-  browser_context?: unknown;
+  browser_context?: Shared.BrowserContext | null;
 
   delivery_request_count?: number | null;
 
@@ -691,9 +697,11 @@ export interface RenditionChanged {
   viewer_id: string | null;
 
   /**
-   * Optional browser information supplied by the player.
+   * Browser and device information. The Chunkify player sends every field, with null
+   * for unavailable measurements. Other integrations may omit any field except
+   * schema_version. Extra properties are preserved.
    */
-  browser_context?: unknown;
+  browser_context?: Shared.BrowserContext | null;
 
   delivery_request_count?: number | null;
 
@@ -846,9 +854,11 @@ export interface SeekCompleted {
   viewer_id: string | null;
 
   /**
-   * Optional browser information supplied by the player.
+   * Browser and device information. The Chunkify player sends every field, with null
+   * for unavailable measurements. Other integrations may omit any field except
+   * schema_version. Extra properties are preserved.
    */
-  browser_context?: unknown;
+  browser_context?: Shared.BrowserContext | null;
 
   delivery_request_count?: number | null;
 
@@ -1020,9 +1030,11 @@ export interface SubtitleChanged {
   viewer_id: string | null;
 
   /**
-   * Optional browser information supplied by the player.
+   * Browser and device information. The Chunkify player sends every field, with null
+   * for unavailable measurements. Other integrations may omit any field except
+   * schema_version. Extra properties are preserved.
    */
-  browser_context?: unknown;
+  browser_context?: Shared.BrowserContext | null;
 
   delivery_request_count?: number | null;
 
@@ -1201,9 +1213,11 @@ export interface ViewEnded {
   viewer_id: string | null;
 
   /**
-   * Optional browser information supplied by the player.
+   * Browser and device information. The Chunkify player sends every field, with null
+   * for unavailable measurements. Other integrations may omit any field except
+   * schema_version. Extra properties are preserved.
    */
-  browser_context?: unknown;
+  browser_context?: Shared.BrowserContext | null;
 
   /**
    * Current playback rate, rounded to two decimals, such as 1, 1.5 or 2; from 0.01
@@ -1367,9 +1381,11 @@ export interface ViewSnapshot {
   viewer_id: string | null;
 
   /**
-   * Optional browser information supplied by the player.
+   * Browser and device information. The Chunkify player sends every field, with null
+   * for unavailable measurements. Other integrations may omit any field except
+   * schema_version. Extra properties are preserved.
    */
-  browser_context?: unknown;
+  browser_context?: Shared.BrowserContext | null;
 
   /**
    * Current playback rate, rounded to two decimals, such as 1, 1.5 or 2; from 0.01
@@ -1533,9 +1549,11 @@ export interface ViewStarted {
   viewer_id: string | null;
 
   /**
-   * Optional browser information supplied by the player.
+   * Browser and device information. The Chunkify player sends every field, with null
+   * for unavailable measurements. Other integrations may omit any field except
+   * schema_version. Extra properties are preserved.
    */
-  browser_context?: unknown;
+  browser_context?: Shared.BrowserContext | null;
 
   /**
    * Integrator-defined dimensions set once when the view starts: at most 10 keys of
