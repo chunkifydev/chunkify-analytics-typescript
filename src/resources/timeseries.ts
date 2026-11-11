@@ -337,9 +337,38 @@ export interface TimeseryRetrieveParams {
   page_path?: string;
 
   /**
-   * Exact video ID. Combined with all other filters using AND.
+   * Playback rate from 0.01 to 16 with at most two decimals, such as 1, 1.5 or 2;
+   * 2.0 and 2 are the same rate. Metrics use the rate on the first retained view
+   * start; raw events use each event's value.
+   */
+  playback_rate?: string;
+
+  /**
+   * Exact, case-sensitive, non-blank subtitle language tag, such as fr or en-US; und
+   * for a subtitles track without a language. Metrics use the language showing on
+   * the first retained view start; raw events use each event's value. Views without
+   * subtitles at start do not match.
+   */
+  subtitle_language?: string;
+
+  /**
+   * Exact integrator-supplied user ID. Selects views by their start event; event
+   * lists match each event's own value. Missing/null user IDs do not match. Reports
+   * with this filter read one stored row per view.
+   */
+  user_id?: string;
+
+  /**
+   * Exact video ID; must not be blank. Combined with all other filters using AND.
    */
   video_id?: string;
+
+  /**
+   * Exact, case-sensitive video title. Selects views by the title on their first
+   * retained start; event lists match each event's own value. Views without a title
+   * do not match. Reports with this filter read one stored row per view.
+   */
+  video_title?: string;
 
   /**
    * Filter one playback attempt by view ID. Metrics use its first retained start.
@@ -347,7 +376,8 @@ export interface TimeseryRetrieveParams {
   view_id?: string;
 
   /**
-   * Exact supplied viewer ID. Missing/null viewer IDs do not match.
+   * Exact viewer ID. The Chunkify player SDK generates one per browser; missing/null
+   * viewer IDs do not match.
    */
   viewer_id?: string;
 }

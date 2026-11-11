@@ -61,11 +61,13 @@ import {
   NativeCreated,
   NativeDuplicate,
   PlaybackError,
+  PlaybackRateChanged,
   PlaybackStateChanged,
   RenditionChanged,
   SeekCompleted,
   StoredEvent,
   StoredEventsEventsPage,
+  SubtitleChanged,
   ViewEnded,
   ViewSnapshot,
   ViewStarted,
@@ -82,6 +84,12 @@ import {
 } from './resources/exports';
 import { Health } from './resources/health';
 import {
+  PlaybackRateMetric,
+  PlaybackRateReport,
+  PlaybackRateRetrieveParams,
+  PlaybackRates,
+} from './resources/playback-rates';
+import {
   Quality,
   QualityBreakdownPage,
   QualityResource,
@@ -95,6 +103,7 @@ import {
   Renditions,
 } from './resources/renditions';
 import { Retention, RetentionBucket, RetentionReport, RetentionRetrieveParams } from './resources/retention';
+import { SubtitleMetric, SubtitleReport, SubtitleRetrieveParams, Subtitles } from './resources/subtitles';
 import {
   Metrics,
   MetricsBreakdownPage,
@@ -985,6 +994,14 @@ export class ChunkifyAnalytics {
    * Private retained-event and view-cohort queries.
    */
   renditions: API.Renditions = new API.Renditions(this);
+  /**
+   * Private retained-event and view-cohort queries.
+   */
+  subtitles: API.Subtitles = new API.Subtitles(this);
+  /**
+   * Private retained-event and view-cohort queries.
+   */
+  playbackRates: API.PlaybackRates = new API.PlaybackRates(this);
 }
 
 ChunkifyAnalytics.Events = Events;
@@ -1000,6 +1017,8 @@ ChunkifyAnalytics.Dimensions = Dimensions;
 ChunkifyAnalytics.Exports = Exports;
 ChunkifyAnalytics.Retention = Retention;
 ChunkifyAnalytics.Renditions = Renditions;
+ChunkifyAnalytics.Subtitles = Subtitles;
+ChunkifyAnalytics.PlaybackRates = PlaybackRates;
 
 export declare namespace ChunkifyAnalytics {
   export type RequestOptions = Opts.RequestOptions;
@@ -1031,10 +1050,12 @@ export declare namespace ChunkifyAnalytics {
     type NativeCreated as NativeCreated,
     type NativeDuplicate as NativeDuplicate,
     type PlaybackError as PlaybackError,
+    type PlaybackRateChanged as PlaybackRateChanged,
     type PlaybackStateChanged as PlaybackStateChanged,
     type RenditionChanged as RenditionChanged,
     type SeekCompleted as SeekCompleted,
     type StoredEvent as StoredEvent,
+    type SubtitleChanged as SubtitleChanged,
     type ViewEnded as ViewEnded,
     type ViewSnapshot as ViewSnapshot,
     type ViewStarted as ViewStarted,
@@ -1157,7 +1178,22 @@ export declare namespace ChunkifyAnalytics {
     type RenditionRetrieveParams as RenditionRetrieveParams,
   };
 
+  export {
+    Subtitles as Subtitles,
+    type SubtitleMetric as SubtitleMetric,
+    type SubtitleReport as SubtitleReport,
+    type SubtitleRetrieveParams as SubtitleRetrieveParams,
+  };
+
+  export {
+    PlaybackRates as PlaybackRates,
+    type PlaybackRateMetric as PlaybackRateMetric,
+    type PlaybackRateReport as PlaybackRateReport,
+    type PlaybackRateRetrieveParams as PlaybackRateRetrieveParams,
+  };
+
   export type BrowserContext = API.BrowserContext;
+  export type CustomDimensions = API.CustomDimensions;
   export type Error = API.Error;
   export type EventContext = API.EventContext;
   export type EventEnvelope = API.EventEnvelope;
@@ -1169,12 +1205,14 @@ export declare namespace ChunkifyAnalytics {
   export type OtlpLogRecord = API.OtlpLogRecord;
   export type OtlpResource = API.OtlpResource;
   export type OtlpScope = API.OtlpScope;
+  export type PlaybackRatePlayingTime = API.PlaybackRatePlayingTime;
   export type PlaybackScore = API.PlaybackScore;
   export type PlayedRange = API.PlayedRange;
   export type ProgressReached = API.ProgressReached;
   export type RenditionPlayingTime = API.RenditionPlayingTime;
   export type StartupOutcomes = API.StartupOutcomes;
   export type StoredOtlpContext = API.StoredOtlpContext;
+  export type SubtitlePlayingTime = API.SubtitlePlayingTime;
   export type ViewMetrics = API.ViewMetrics;
   export type WatchTimeDistribution = API.WatchTimeDistribution;
 }
