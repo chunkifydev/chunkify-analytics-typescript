@@ -41,9 +41,13 @@ describe('resource timeseries', () => {
       os_name: 'x',
       page_origin: 'x',
       page_path: 'x',
-      video_id: 'video_id',
+      playback_rate: '269125115713',
+      subtitle_language: 'P',
+      user_id: 'x',
+      video_id: 'P',
+      video_title: 'x',
       view_id: 'x',
-      viewer_id: 'viewer_id',
+      viewer_id: 'x',
     });
   });
 });
