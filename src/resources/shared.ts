@@ -3,43 +3,28 @@
 import * as Shared from './shared';
 
 /**
- * Browser and device information reported by the player. Unavailable measurements
- * are null.
+ * Browser and device information. The Chunkify player sends every field, with null
+ * for unavailable measurements. Other integrations may omit any field except
+ * schema_version. Extra properties are preserved.
  */
 export interface BrowserContext {
-  browser_name: string | null;
-
-  browser_version: string | null;
-
-  device_family: string | null;
-
-  device_type: 'desktop' | 'mobile' | 'tablet' | 'unknown';
-
-  language: string | null;
-
-  language_prefix: string | null;
-
-  os_name: string | null;
-
-  os_version: string | null;
-
-  pixel_ratio: number | null;
-
   schema_version: 1;
 
-  screen_height_px: number | null;
+  browser_name?: string | null;
 
-  screen_width_px: number | null;
+  browser_version?: string | null;
 
-  timezone: string | null;
+  device_family?: string | null;
 
-  timezone_offset_minutes: number | null;
+  device_type?: 'desktop' | 'mobile' | 'tablet' | 'unknown';
 
-  user_agent: string | null;
+  language?: string | null;
 
-  viewport_height_px: number | null;
+  language_prefix?: string | null;
 
-  viewport_width_px: number | null;
+  os_name?: string | null;
+
+  os_version?: string | null;
 
   /**
    * Current document HTTP(S) origin, without credentials. Null when unavailable or
@@ -53,6 +38,22 @@ export interface BrowserContext {
    * application-defined identifiers.
    */
   page_path?: string | null;
+
+  pixel_ratio?: number | null;
+
+  screen_height_px?: number | null;
+
+  screen_width_px?: number | null;
+
+  timezone?: string | null;
+
+  timezone_offset_minutes?: number | null;
+
+  user_agent?: string | null;
+
+  viewport_height_px?: number | null;
+
+  viewport_width_px?: number | null;
 }
 
 /**
@@ -271,9 +272,11 @@ export interface EventEnvelope {
   viewer_id: string | null;
 
   /**
-   * Optional browser information supplied by the player.
+   * Browser and device information. The Chunkify player sends every field, with null
+   * for unavailable measurements. Other integrations may omit any field except
+   * schema_version. Extra properties are preserved.
    */
-  browser_context?: unknown;
+  browser_context?: BrowserContext | null;
 
   delivery_request_count?: number | null;
 
