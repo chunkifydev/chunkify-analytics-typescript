@@ -79,7 +79,6 @@ import {
   ExportDownloadResponse,
   ExportListColumnsParams,
   ExportQuery,
-  ExportRequest,
   Exports,
 } from './resources/exports';
 import { Health } from './resources/health';
@@ -131,21 +130,14 @@ import {
   Views,
   ViewsViewsPage,
 } from './resources/views';
+import { Admin, AdminCreateProjectParams, CreatedProject } from './resources/admin/admin';
 import {
-  Admin,
-  AdminCreateProjectParams,
-  CreateProjectRequest,
-  CreatedProject,
-} from './resources/admin/admin';
-import {
-  CreateProjectKeyRequest,
   CreatedProjectKey,
   DeletedProject,
   Project,
   ProjectKey,
   ProjectKeys,
   ProjectResource,
-  ProjectUpdate,
   ProjectUpdateParams,
   RotatedProjectKey,
 } from './resources/project/project';
@@ -1110,20 +1102,17 @@ export declare namespace ChunkifyAnalytics {
 
   export {
     ProjectResource as ProjectResource,
-    type CreateProjectKeyRequest as CreateProjectKeyRequest,
     type CreatedProjectKey as CreatedProjectKey,
     type DeletedProject as DeletedProject,
     type Project as Project,
     type ProjectKey as ProjectKey,
     type ProjectKeys as ProjectKeys,
-    type ProjectUpdate as ProjectUpdate,
     type RotatedProjectKey as RotatedProjectKey,
     type ProjectUpdateParams as ProjectUpdateParams,
   };
 
   export {
     Admin as Admin,
-    type CreateProjectRequest as CreateProjectRequest,
     type CreatedProject as CreatedProject,
     type AdminCreateProjectParams as AdminCreateProjectParams,
   };
@@ -1158,7 +1147,6 @@ export declare namespace ChunkifyAnalytics {
     type Export as Export,
     type ExportColumns as ExportColumns,
     type ExportQuery as ExportQuery,
-    type ExportRequest as ExportRequest,
     type ExportDownloadResponse as ExportDownloadResponse,
     type ExportCreateParams as ExportCreateParams,
     type ExportListColumnsParams as ExportListColumnsParams,
@@ -1194,7 +1182,6 @@ export declare namespace ChunkifyAnalytics {
 
   export type BrowserContext = API.BrowserContext;
   export type CustomDimensions = API.CustomDimensions;
-  export type Error = API.Error;
   export type EventContext = API.EventContext;
   export type EventEnvelope = API.EventEnvelope;
   export type MetricCountRatio = API.MetricCountRatio;

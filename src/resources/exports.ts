@@ -220,32 +220,6 @@ export interface ExportQuery {
   viewer_id?: string;
 }
 
-export interface ExportRequest {
-  resource:
-    | 'summary'
-    | 'quality'
-    | 'engagement'
-    | 'timeseries'
-    | 'videos'
-    | 'events'
-    | 'views'
-    | 'errors'
-    | 'dimensions'
-    | 'renditions'
-    | 'subtitles'
-    | 'playback_rates'
-    | 'retention';
-
-  /**
-   * CSV column names in output order. Omit for all columns. Get the available names
-   * from GET /v1/exports using the same resource, kind and group_by. Unknown names,
-   * duplicates and empty selections are rejected.
-   */
-  columns?: Array<string>;
-
-  query?: ExportQuery;
-}
-
 export type ExportDownloadResponse = string;
 
 export interface ExportCreateParams {
@@ -335,7 +309,6 @@ export declare namespace Exports {
     type Export as Export,
     type ExportColumns as ExportColumns,
     type ExportQuery as ExportQuery,
-    type ExportRequest as ExportRequest,
     type ExportDownloadResponse as ExportDownloadResponse,
     type ExportCreateParams as ExportCreateParams,
     type ExportListColumnsParams as ExportListColumnsParams,

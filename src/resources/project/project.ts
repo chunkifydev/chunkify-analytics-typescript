@@ -46,21 +46,6 @@ export class ProjectResource extends APIResource {
   }
 }
 
-export interface CreateProjectKeyRequest {
-  /**
-   * Key display name, up to 128 UTF-8 bytes. Whitespace-only names are rejected.
-   */
-  name: string;
-
-  permission: 'public' | 'secret';
-
-  /**
-   * Only secret keys can be read-only. False grants full project management access
-   * to secret keys; public keys only ingest events.
-   */
-  read_only?: boolean;
-}
-
 /**
  * A newly created key. Save the key value now; later key listings contain only
  * metadata.
@@ -147,22 +132,6 @@ export interface ProjectKeys {
   project_id: string;
 }
 
-export interface ProjectUpdate {
-  /**
-   * Additional project origins. Shared TOML origins are always included.
-   */
-  allowed_origins?: Array<string>;
-
-  name?: string;
-
-  /**
-   * Retention by server receipt time, in seconds. 0 disables expiration; null
-   * inherits the installation default. Omission leaves the current setting
-   * unchanged. Applies to existing and new events; removed data cannot be recovered.
-   */
-  retention_seconds?: number | null;
-}
-
 export interface RotatedProjectKey {
   /**
    * New key value. Save it now; it is returned once.
@@ -206,13 +175,11 @@ ProjectResource.Keys = Keys;
 
 export declare namespace ProjectResource {
   export {
-    type CreateProjectKeyRequest as CreateProjectKeyRequest,
     type CreatedProjectKey as CreatedProjectKey,
     type DeletedProject as DeletedProject,
     type Project as Project,
     type ProjectKey as ProjectKey,
     type ProjectKeys as ProjectKeys,
-    type ProjectUpdate as ProjectUpdate,
     type RotatedProjectKey as RotatedProjectKey,
     type ProjectUpdateParams as ProjectUpdateParams,
   };
