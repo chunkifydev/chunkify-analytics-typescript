@@ -67,10 +67,6 @@ export interface BrowserContext {
  */
 export type CustomDimensions = { [key: string]: string | number | boolean };
 
-export interface Error {
-  error: string;
-}
-
 /**
  * Browser context and locally derived continent/country/city. Request IP addresses
  * are never added to events or stored context.
