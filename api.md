@@ -4,7 +4,6 @@ Types:
 
 - <code><a href="./src/resources/shared.ts">BrowserContext</a></code>
 - <code><a href="./src/resources/shared.ts">CustomDimensions</a></code>
-- <code><a href="./src/resources/shared.ts">Error</a></code>
 - <code><a href="./src/resources/shared.ts">EventContext</a></code>
 - <code><a href="./src/resources/shared.ts">EventEnvelope</a></code>
 - <code><a href="./src/resources/shared.ts">MetricCountRatio</a></code>
@@ -128,13 +127,11 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/project/project.ts">CreateProjectKeyRequest</a></code>
 - <code><a href="./src/resources/project/project.ts">CreatedProjectKey</a></code>
 - <code><a href="./src/resources/project/project.ts">DeletedProject</a></code>
 - <code><a href="./src/resources/project/project.ts">Project</a></code>
 - <code><a href="./src/resources/project/project.ts">ProjectKey</a></code>
 - <code><a href="./src/resources/project/project.ts">ProjectKeys</a></code>
-- <code><a href="./src/resources/project/project.ts">ProjectUpdate</a></code>
 - <code><a href="./src/resources/project/project.ts">RotatedProjectKey</a></code>
 
 Methods:
@@ -154,7 +151,6 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/admin/admin.ts">CreateProjectRequest</a></code>
 - <code><a href="./src/resources/admin/admin.ts">CreatedProject</a></code>
 
 Methods:
@@ -209,7 +205,6 @@ Types:
 - <code><a href="./src/resources/exports.ts">Export</a></code>
 - <code><a href="./src/resources/exports.ts">ExportColumns</a></code>
 - <code><a href="./src/resources/exports.ts">ExportQuery</a></code>
-- <code><a href="./src/resources/exports.ts">ExportRequest</a></code>
 - <code><a href="./src/resources/exports.ts">ExportDownloadResponse</a></code>
 
 Methods:

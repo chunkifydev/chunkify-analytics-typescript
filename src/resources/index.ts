@@ -1,12 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 export * from './shared';
-export {
-  Admin,
-  type CreateProjectRequest,
-  type CreatedProject,
-  type AdminCreateProjectParams,
-} from './admin/admin';
+export { Admin, type CreatedProject, type AdminCreateProjectParams } from './admin/admin';
 export {
   Dimensions,
   type DimensionValues,
@@ -53,7 +48,6 @@ export {
   type Export,
   type ExportColumns,
   type ExportQuery,
-  type ExportRequest,
   type ExportDownloadResponse,
   type ExportCreateParams,
   type ExportListColumnsParams,
@@ -67,13 +61,11 @@ export {
 } from './playback-rates';
 export {
   ProjectResource,
-  type CreateProjectKeyRequest,
   type CreatedProjectKey,
   type DeletedProject,
   type Project,
   type ProjectKey,
   type ProjectKeys,
-  type ProjectUpdate,
   type RotatedProjectKey,
   type ProjectUpdateParams,
 } from './project/project';
