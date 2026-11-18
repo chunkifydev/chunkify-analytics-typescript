@@ -31,24 +31,6 @@ export class Admin extends APIResource {
   }
 }
 
-export interface CreateProjectRequest {
-  /**
-   * Project display name.
-   */
-  name: string;
-
-  /**
-   * Additional project origins. Shared TOML origins are always included.
-   */
-  allowed_origins?: Array<string>;
-
-  /**
-   * Retention by server receipt time, in seconds. 0 disables expiration; null
-   * inherits the installation default. Omission also inherits the default.
-   */
-  retention_seconds?: number | null;
-}
-
 export interface CreatedProject {
   /**
    * Effective retention in seconds after resolving the installation default. 0
@@ -105,11 +87,7 @@ export interface AdminCreateProjectParams {
 Admin.Keys = Keys;
 
 export declare namespace Admin {
-  export {
-    type CreateProjectRequest as CreateProjectRequest,
-    type CreatedProject as CreatedProject,
-    type AdminCreateProjectParams as AdminCreateProjectParams,
-  };
+  export { type CreatedProject as CreatedProject, type AdminCreateProjectParams as AdminCreateProjectParams };
 
   export { Keys as Keys, type KeyRotateParams as KeyRotateParams };
 }
