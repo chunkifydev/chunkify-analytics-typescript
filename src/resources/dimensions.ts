@@ -31,6 +31,7 @@ export class Dimensions extends APIResource {
       | 'page_path'
       | 'subtitle_language'
       | 'playback_rate'
+      | 'delivery_format'
       | 'custom_keys'
       | (string & {}),
     query: DimensionListValuesParams | null | undefined = {},
@@ -65,6 +66,7 @@ export interface DimensionValues {
     | 'page_path'
     | 'subtitle_language'
     | 'playback_rate'
+    | 'delivery_format'
     | 'custom_keys'
     | (string & {});
 
@@ -104,6 +106,15 @@ export interface DimensionListValuesParams extends DimensionValuesPageParams {
    * do not match.
    */
   country?: string;
+
+  /**
+   * Delivery format on the first retained view start: hls for HLS streams, file for
+   * a single media file such as an MP4 rendition. Metrics use the first retained
+   * view start; raw events use each event's value. Views whose SDK did not report it
+   * do not match. connector_name is not a substitute: Safari plays HLS natively and
+   * reports html-media.
+   */
+  delivery_format?: 'hls' | 'file';
 
   /**
    * Exact device class. unknown matches an explicit unknown value.
