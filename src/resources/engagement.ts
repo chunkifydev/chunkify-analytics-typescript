@@ -96,6 +96,7 @@ export interface EngagementBreakdownPage {
     | 'page_path'
     | 'subtitle_language'
     | 'playback_rate'
+    | 'delivery_format'
     | 'video_title'
     | 'user_id'
     | (string & {});
@@ -155,6 +156,15 @@ export interface EngagementRetrieveParams {
   cursor?: string;
 
   /**
+   * Delivery format on the first retained view start: hls for HLS streams, file for
+   * a single media file such as an MP4 rendition. Metrics use the first retained
+   * view start; raw events use each event's value. Views whose SDK did not report it
+   * do not match. connector_name is not a substitute: Safari plays HLS natively and
+   * reports html-media.
+   */
+  delivery_format?: 'hls' | 'file';
+
+  /**
    * Exact device class. unknown matches an explicit unknown value.
    */
   device_type?: 'desktop' | 'mobile' | 'tablet' | 'unknown';
@@ -176,9 +186,11 @@ export interface EngagementRetrieveParams {
    * navigation. Filter by page_origin when grouping page_path to distinguish
    * identical paths on different sites. video_title groups by the title on each
    * view's first retained start, so a renamed video counts each view under the title
-   * it started with. user_id groups by the user ID on each view's first retained
-   * start. Use custom.<key>, such as custom.plan, to group by a custom dimension;
-   * views without the key form the null group.
+   * it started with. delivery_format groups by hls or file on each view's first
+   * retained start; views from SDKs that do not report it form the null group.
+   * user_id groups by the user ID on each view's first retained start. Use
+   * custom.<key>, such as custom.plan, to group by a custom dimension; views without
+   * the key form the null group.
    */
   group_by?:
     | 'browser_name'
@@ -191,6 +203,7 @@ export interface EngagementRetrieveParams {
     | 'page_path'
     | 'subtitle_language'
     | 'playback_rate'
+    | 'delivery_format'
     | 'video_title'
     | 'user_id'
     | (string & {});

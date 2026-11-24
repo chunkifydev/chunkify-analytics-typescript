@@ -32,6 +32,7 @@ describe('resource renditions', () => {
           city: 'x',
           continent: 'AF',
           country: 'SE',
+          delivery_format: 'hls',
           device_type: 'desktop',
           from: '2019-12-27T18:11:19.117Z',
           limit: 1,

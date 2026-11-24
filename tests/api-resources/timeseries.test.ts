@@ -36,6 +36,7 @@ describe('resource timeseries', () => {
       city: 'x',
       continent: 'AF',
       country: 'SE',
+      delivery_format: 'hls',
       device_type: 'desktop',
       kind: 'summary',
       os_name: 'x',
