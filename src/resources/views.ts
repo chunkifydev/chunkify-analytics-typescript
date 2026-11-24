@@ -143,6 +143,15 @@ export interface ViewListParams extends ViewsPageParams {
   country?: string;
 
   /**
+   * Delivery format on the first retained view start: hls for HLS streams, file for
+   * a single media file such as an MP4 rendition. Metrics use the first retained
+   * view start; raw events use each event's value. Views whose SDK did not report it
+   * do not match. connector_name is not a substitute: Safari plays HLS natively and
+   * reports html-media.
+   */
+  delivery_format?: 'hls' | 'file';
+
+  /**
    * Exact device class. unknown matches an explicit unknown value.
    */
   device_type?: 'desktop' | 'mobile' | 'tablet' | 'unknown';
