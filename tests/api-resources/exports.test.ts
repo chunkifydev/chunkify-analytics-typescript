@@ -32,6 +32,7 @@ describe('resource exports', () => {
         city: 'x',
         continent: 'AF',
         country: 'SE',
+        delivery_format: 'hls',
         device_type: 'desktop',
         dimension: 'browser_name',
         event_name: 'chunkify.video.view_started',

@@ -262,6 +262,14 @@ export interface PlaybackError {
   browser_context?: Shared.BrowserContext | null;
 
   /**
+   * How the player receives the media: hls for an HLS stream, file for a single
+   * media file such as an MP4 rendition; null when unknown. Optional: older SDKs
+   * omit it. Reports read it from each view's first start. Unlike connector_name, it
+   * does not depend on the playback engine: Safari's native HLS reports html-media.
+   */
+  delivery_format?: 'hls' | 'file' | null;
+
+  /**
    * Current playback rate, rounded to two decimals, such as 1, 1.5 or 2; from 0.01
    * to 16. Optional.
    */
@@ -388,6 +396,14 @@ export interface PlaybackRateChanged {
    * schema_version. Extra properties are preserved.
    */
   browser_context?: Shared.BrowserContext | null;
+
+  /**
+   * How the player receives the media: hls for an HLS stream, file for a single
+   * media file such as an MP4 rendition; null when unknown. Optional: older SDKs
+   * omit it. Reports read it from each view's first start. Unlike connector_name, it
+   * does not depend on the playback engine: Safari's native HLS reports html-media.
+   */
+  delivery_format?: 'hls' | 'file' | null;
 
   delivery_request_count?: number | null;
 
@@ -546,6 +562,14 @@ export interface PlaybackStateChanged {
    */
   browser_context?: Shared.BrowserContext | null;
 
+  /**
+   * How the player receives the media: hls for an HLS stream, file for a single
+   * media file such as an MP4 rendition; null when unknown. Optional: older SDKs
+   * omit it. Reports read it from each view's first start. Unlike connector_name, it
+   * does not depend on the playback engine: Safari's native HLS reports html-media.
+   */
+  delivery_format?: 'hls' | 'file' | null;
+
   delivery_request_count?: number | null;
 
   delivery_throughput_bps?: number | null;
@@ -702,6 +726,14 @@ export interface RenditionChanged {
    * schema_version. Extra properties are preserved.
    */
   browser_context?: Shared.BrowserContext | null;
+
+  /**
+   * How the player receives the media: hls for an HLS stream, file for a single
+   * media file such as an MP4 rendition; null when unknown. Optional: older SDKs
+   * omit it. Reports read it from each view's first start. Unlike connector_name, it
+   * does not depend on the playback engine: Safari's native HLS reports html-media.
+   */
+  delivery_format?: 'hls' | 'file' | null;
 
   delivery_request_count?: number | null;
 
@@ -860,6 +892,14 @@ export interface SeekCompleted {
    */
   browser_context?: Shared.BrowserContext | null;
 
+  /**
+   * How the player receives the media: hls for an HLS stream, file for a single
+   * media file such as an MP4 rendition; null when unknown. Optional: older SDKs
+   * omit it. Reports read it from each view's first start. Unlike connector_name, it
+   * does not depend on the playback engine: Safari's native HLS reports html-media.
+   */
+  delivery_format?: 'hls' | 'file' | null;
+
   delivery_request_count?: number | null;
 
   delivery_throughput_bps?: number | null;
@@ -885,6 +925,13 @@ export interface SeekCompleted {
   player_width_px?: number | null;
 
   playing_time_ms?: number;
+
+  /**
+   * Wall-clock time spent in state_before_seek until the seek started, excluding the
+   * seek. The state after the seek is timed from when the seek ends, so each stretch
+   * is reported once. Omitted by older SDKs.
+   */
+  previous_state_duration_ms?: number;
 
   rebuffer_count?: number;
 
@@ -1035,6 +1082,14 @@ export interface SubtitleChanged {
    * schema_version. Extra properties are preserved.
    */
   browser_context?: Shared.BrowserContext | null;
+
+  /**
+   * How the player receives the media: hls for an HLS stream, file for a single
+   * media file such as an MP4 rendition; null when unknown. Optional: older SDKs
+   * omit it. Reports read it from each view's first start. Unlike connector_name, it
+   * does not depend on the playback engine: Safari's native HLS reports html-media.
+   */
+  delivery_format?: 'hls' | 'file' | null;
 
   delivery_request_count?: number | null;
 
@@ -1220,6 +1275,14 @@ export interface ViewEnded {
   browser_context?: Shared.BrowserContext | null;
 
   /**
+   * How the player receives the media: hls for an HLS stream, file for a single
+   * media file such as an MP4 rendition; null when unknown. Optional: older SDKs
+   * omit it. Reports read it from each view's first start. Unlike connector_name, it
+   * does not depend on the playback engine: Safari's native HLS reports html-media.
+   */
+  delivery_format?: 'hls' | 'file' | null;
+
+  /**
    * Current playback rate, rounded to two decimals, such as 1, 1.5 or 2; from 0.01
    * to 16. Optional.
    */
@@ -1386,6 +1449,14 @@ export interface ViewSnapshot {
    * schema_version. Extra properties are preserved.
    */
   browser_context?: Shared.BrowserContext | null;
+
+  /**
+   * How the player receives the media: hls for an HLS stream, file for a single
+   * media file such as an MP4 rendition; null when unknown. Optional: older SDKs
+   * omit it. Reports read it from each view's first start. Unlike connector_name, it
+   * does not depend on the playback engine: Safari's native HLS reports html-media.
+   */
+  delivery_format?: 'hls' | 'file' | null;
 
   /**
    * Current playback rate, rounded to two decimals, such as 1, 1.5 or 2; from 0.01
@@ -1567,6 +1638,14 @@ export interface ViewStarted {
   custom?: Shared.CustomDimensions;
 
   /**
+   * How the player receives the media: hls for an HLS stream, file for a single
+   * media file such as an MP4 rendition; null when unknown. Optional: older SDKs
+   * omit it. Reports read it from each view's first start. Unlike connector_name, it
+   * does not depend on the playback engine: Safari's native HLS reports html-media.
+   */
+  delivery_format?: 'hls' | 'file' | null;
+
+  /**
    * Current playback rate, rounded to two decimals, such as 1, 1.5 or 2; from 0.01
    * to 16. Optional.
    */
@@ -1647,6 +1726,15 @@ export interface EventListParams extends EventsPageParams {
    * do not match.
    */
   country?: string;
+
+  /**
+   * Delivery format on the first retained view start: hls for HLS streams, file for
+   * a single media file such as an MP4 rendition. Metrics use the first retained
+   * view start; raw events use each event's value. Views whose SDK did not report it
+   * do not match. connector_name is not a substitute: Safari plays HLS natively and
+   * reports html-media.
+   */
+  delivery_format?: 'hls' | 'file';
 
   /**
    * Exact device class. unknown matches an explicit unknown value.

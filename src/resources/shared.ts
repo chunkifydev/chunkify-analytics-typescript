@@ -274,6 +274,14 @@ export interface EventEnvelope {
    */
   browser_context?: BrowserContext | null;
 
+  /**
+   * How the player receives the media: hls for an HLS stream, file for a single
+   * media file such as an MP4 rendition; null when unknown. Optional: older SDKs
+   * omit it. Reports read it from each view's first start. Unlike connector_name, it
+   * does not depend on the playback engine: Safari's native HLS reports html-media.
+   */
+  delivery_format?: 'hls' | 'file' | null;
+
   delivery_request_count?: number | null;
 
   delivery_throughput_bps?: number | null;
