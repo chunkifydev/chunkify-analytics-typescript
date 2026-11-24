@@ -33,6 +33,7 @@ describe('resource summary', () => {
           continent: 'AF',
           country: 'SE',
           cursor: 'cursor',
+          delivery_format: 'hls',
           device_type: 'desktop',
           from: '2019-12-27T18:11:19.117Z',
           group_by: 'browser_name',
