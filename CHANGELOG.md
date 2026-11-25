@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0](https://github.com/chunkifydev/chunkify-analytics-typescript/compare/v0.9.0...v0.10.0) (2026-11-24)
+
+
+### Features
+
+* **api:** add delivery_format and seek timing ([44e35cb](https://github.com/chunkifydev/chunkify-analytics-typescript/commit/44e35cb963ece23cdc7f2568348646a460d73c9f))
+
 ## [0.9.0](https://github.com/chunkifydev/chunkify-analytics-typescript/compare/v0.0.1...v0.9.0) (2026-11-18)
 
 
